@@ -1,103 +1,103 @@
-import Image from "next/image";
+import { FaMagic, FaBolt, FaPaintBrush, FaRocket } from "react-icons/fa";
+
+import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white flex flex-col items-center justify-center px-6 py-10">
+      {/* Hero Section */}
+      {/* <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-center max-w-3xl"
+      > */}
+      <h2 className="text-4xl font-extrabold text-white leading-tight drop-shadow-lg">
+        Transform Your Words into Stunning Images
+      </h2>
+      <p className="mt-4 text-lg text-gray-300">
+        Textify is an AI-powered tool that converts your text into visually
+        appealing images. Start creating now!
+      </p>
+      <div className="mt-6 flex space-x-4 justify-center">
+        <Link href="/dashboard">
+          <Button className="bg-blue-500 hover:bg-blue-600 px-6 py-3 text-lg font-semibold flex items-center">
+            Get Started <FaMagic className="ml-2" />
+          </Button>
+        </Link>
+        <Button className="bg-gray-700 hover:bg-gray-600 px-6 py-3 text-lg font-semibold">
+          Learn More
+        </Button>
+      </div>
+      {/* </motion.div> */}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Example Generated Images Section */}
+      <section className="mt-16 max-w-4xl text-center bg-gray-800 p-10 rounded-xl shadow-lg">
+        <h3 className="text-4xl font-bold text-white drop-shadow-md">
+          Example Text-to-Image Creations
+        </h3>
+        <p className="text-gray-400 mt-4">
+          See how AI can transform simple text into stunning visuals.
+        </p>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <ExampleImage
+            text="A futuristic city at sunset"
+            imageUrl="https://images.stockcake.com/public/7/b/f/7bf6ddd4-7917-4451-b709-87ee62920d8a_large/futuristic-city-sunset-stockcake.jpg"
+          />
+          <ExampleImage
+            text="A dreamy landscape with glowing trees"
+            imageUrl="https://m.media-amazon.com/images/I/81SR6e0SNbL.jpg"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </section>
+
+      {/* Features Section */}
+      <section className="mt-16 max-w-5xl text-center">
+        <h3 className="text-4xl font-bold text-white drop-shadow-md">
+          Why Choose Textify?
+        </h3>
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <FeatureCard
+            title="AI-Powered"
+            description="Leverage powerful AI models to generate high-quality images from text."
+            icon={<FaBolt className="text-yellow-400 text-4xl mb-4" />}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <FeatureCard
+            title="Custom Styles"
+            description="Choose from multiple artistic styles and themes to suit your needs."
+            icon={<FaPaintBrush className="text-pink-400 text-4xl mb-4" />}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <FeatureCard
+            title="Fast & Easy"
+            description="Simple interface with instant results, no design skills needed."
+            icon={<FaRocket className="text-blue-400 text-4xl mb-4" />}
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function FeatureCard({ title, description, icon }) {
+  return (
+    <div className="p-8 bg-gray-800 rounded-xl shadow-lg text-center flex flex-col items-center">
+      {icon}
+      <h4 className="text-2xl font-semibold text-white">{title}</h4>
+      <p className="text-gray-400 mt-2">{description}</p>
+    </div>
+  );
+}
+
+function ExampleImage({ text, imageUrl }) {
+  return (
+    <div className="bg-gray-700 p-4 rounded-lg shadow-md text-center">
+      <img
+        src={imageUrl}
+        alt={text}
+        className="w-80 h-80 object-cover rounded-lg"
+      />
+      <p className="text-gray-300 mt-2">{text}</p>
     </div>
   );
 }
