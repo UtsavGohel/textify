@@ -5,10 +5,11 @@ import { toast } from "react-hot-toast";
 import { Loader2 } from "lucide-react";
 import { FaDownload } from "react-icons/fa";
 import { useSession } from "next-auth/react";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function ImageGenerator() {
   const { data: session } = useSession();
+  const router = useRouter();
 
   const [prompt, setPrompt] = useState("");
   const [image, setImage] = useState("");
@@ -25,7 +26,7 @@ export default function ImageGenerator() {
 
   const generateImage = async () => {
     if (credits <= 0) {
-      alert("You have 0 credits left. Purchase more to generate images.");
+      toast.error("You have 0 credits left. Purchase more to generate images.");
       return;
     }
 
@@ -71,23 +72,30 @@ export default function ImageGenerator() {
     link.click();
     document.body.removeChild(link);
 
-    // Clean up the object URL
     URL.revokeObjectURL(blobUrl);
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white px-6">
-      <div className="bg-gray-800 p-10 rounded-xl shadow-lg w-full max-w-lg mt-7">
-        <p className="text-lg mb-4">
-          You have <span className="font-bold text-green-400">{credits}</span>{" "}
-          credits left.
-        </p>
+    <div className="min-h-screen flex flex-col py-2 items-center justify-center bg-gray-900 text-white px-6">
+      <div className="bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-xl flex flex-col gap-6">
+        {/* Credits & Buy More Button */}
+        <div className="flex justify-between items-center">
+          <p className="text-lg">
+            You have <span className="font-bold text-green-400">{credits}</span>{" "}
+            credits left.
+          </p>
+          <button
+            onClick={() => router.push("/pricing")}
+            className="px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-600 transition-all cursor-pointer"
+          >
+            Buy More Credits
+          </button>
+        </div>
 
-        <h2 className="text-3xl font-bold text-center mb-6">
-          AI Image Generator
-        </h2>
+        <h2 className="text-3xl font-bold text-center">AI Image Generator</h2>
+
         {/* Input & Generate Button */}
-        <div className="space-y-4">
+        <div className="flex flex-col gap-4">
           <input
             type="text"
             value={prompt}
@@ -99,7 +107,9 @@ export default function ImageGenerator() {
             onClick={generateImage}
             disabled={loading || credits <= 0}
             className={`w-full px-6 py-3 rounded-lg font-semibold text-lg flex items-center justify-center transition-all ${
-              loading ? "bg-gray-500" : "bg-blue-500 hover:bg-blue-600"
+              loading || credits <= 0
+                ? "bg-gray-500 cursor-not-allowed"
+                : "bg-blue-500 hover:bg-blue-600"
             }`}
           >
             {loading ? (
@@ -109,26 +119,31 @@ export default function ImageGenerator() {
             )}
           </button>
         </div>
-        {/* Image & Download Button */}
-        {image && (
-          <div className="relative mt-6">
-            {/* Download Button (Positioned Correctly) */}
-            <button
-              onClick={downloadImage}
-              className="absolute top-3 left-3 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition cursor-pointer"
-              title="Download Image"
-            >
-              <FaDownload className="text-gray-700 text-xl" />
-            </button>
 
-            {/* Generated Image */}
-            <img
-              src={image}
-              alt="Generated"
-              className="w-full rounded-lg shadow-lg border border-gray-700"
-            />
-          </div>
-        )}
+        {/* Image Section */}
+        <div className="flex items-center justify-center border border-gray-700 rounded-lg min-h-[250px] bg-gray-900">
+          {image ? (
+            <div className="relative w-full">
+              <button
+                onClick={downloadImage}
+                className="absolute top-3 left-3 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition cursor-pointer"
+                title="Download Image"
+              >
+                <FaDownload className="text-gray-700 text-xl" />
+              </button>
+
+              <img
+                src={image}
+                alt="Generated"
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>
+          ) : (
+            <p className="text-gray-400">
+              Your generated image will appear here.
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
