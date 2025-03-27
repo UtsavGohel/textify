@@ -2,7 +2,6 @@
 import Button from "@/components/ui/Button";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import Image from "next/image";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -11,7 +10,9 @@ const Navbar = () => {
     <nav className="bg-gray-800 p-4 flex justify-between items-center bg-gradient-to-br from-gray-900 to-gray-800 shadow-lg">
       {/* Logo Section */}
       <Link href="/" className="flex items-center space-x-2">
-        <Image src="/logo-1.webp" alt="Textify Logo" width={50} height={50} />
+        <span className="text-2xl font-bold text-white cursor-pointer">
+          Textify
+        </span>
       </Link>
 
       {/* Authentication Section */}
