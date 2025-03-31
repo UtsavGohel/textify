@@ -179,7 +179,15 @@ export default function Home() {
 }
 
 /* Step Card Component */
-function StepCard({ step, title, description }) {
+function StepCard({
+  step,
+  title,
+  description,
+}: {
+  step: string;
+  title: string;
+  description: string;
+}) {
   return (
     <div className="p-8 bg-gray-800 rounded-xl shadow-lg text-center">
       <h4 className="text-2xl font-semibold text-white">
@@ -191,18 +199,24 @@ function StepCard({ step, title, description }) {
 }
 
 /* Testimonial Card Component */
-function TestimonialCard({ name, feedback }) {
+function TestimonialCard({
+  name,
+  feedback,
+}: {
+  name: string;
+  feedback: string;
+}) {
   return (
     <div className="p-8 bg-gray-800 rounded-xl shadow-lg text-center w-80">
       <FaStar className="text-yellow-400 text-5xl mb-3 mx-auto" />
-      <p className="text-lg text-gray-300">"{feedback}"</p>
+      <p className="text-lg text-gray-300">{feedback}</p>
       <h4 className="text-xl font-semibold text-white mt-4">{name}</h4>
     </div>
   );
 }
 
 /* FAQ Item Component */
-function FAQItem({ question, answer }) {
+function FAQItem({ question, answer }: { question: string; answer: string }) {
   return (
     <details className="mb-6 bg-gray-800 p-6 rounded-lg cursor-pointer">
       <summary className="text-xl font-semibold">{question}</summary>
@@ -212,7 +226,15 @@ function FAQItem({ question, answer }) {
 }
 
 /* Pricing Plan Card Component */
-function PlanCard({ title, price, features }) {
+function PlanCard({
+  title,
+  price,
+  features,
+}: {
+  title: string;
+  price: string;
+  features: string[];
+}) {
   return (
     <div className="p-8 bg-gray-800 rounded-xl shadow-lg text-center">
       <h4 className="text-3xl font-semibold text-white">{title}</h4>
