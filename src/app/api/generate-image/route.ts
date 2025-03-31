@@ -1,8 +1,8 @@
 import User from "@/app/model/user";
+import { authOption } from "@/app/utils/authOptions";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
-import { authOption } from "../auth/[...nextauth]/route";
 
 export async function POST(req: Request) {
   const session = await getServerSession(authOption);
@@ -40,14 +40,6 @@ export async function POST(req: Request) {
   const response = await client.images.generate({
     model: "black-forest-labs/flux-dev",
     response_format: "url",
-    extra_body: {
-      response_extension: "webp",
-      width: 1024,
-      height: 1024,
-      num_inference_steps: 28,
-      negative_prompt: "",
-      seed: -1,
-    },
     prompt: `Imagine you are my AI image assistant. Generate an accurate and well-balanced image where all objects are clearly visible. Here is my prompt: ${prompt}`,
   });
 
