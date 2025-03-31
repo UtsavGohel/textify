@@ -16,7 +16,8 @@ export default function SignInPage() {
     }
   }, [session, router]);
 
-  const handleSubmit = async (event) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
     setLoading(true);
 
@@ -34,7 +35,8 @@ export default function SignInPage() {
 
       toast.success("Sign-in successful!");
       router.push("/dashboard");
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       toast.error(error.message);
     } finally {
       setLoading(false);
