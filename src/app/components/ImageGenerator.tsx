@@ -5,6 +5,18 @@ import { toast } from "react-hot-toast";
 import { Loader2 } from "lucide-react";
 import { FaDownload } from "react-icons/fa";
 import { useSession } from "next-auth/react";
+
+// Extend the Session type to include user.id
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id?: string;
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+    };
+  }
+}
 import { useRouter } from "next/navigation";
 
 export default function ImageGenerator() {
@@ -51,7 +63,8 @@ export default function ImageGenerator() {
       setImage(data.imageUrl);
       setCredits((prev) => prev - 1);
       toast.success("Image generated successfully!");
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       toast.error(error.message);
     } finally {
       setLoading(false);
