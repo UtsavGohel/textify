@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { connectToDB } from "@/app/lib/mongodb";
 import User from "@/app/model/user";
 import { getServerSession } from "next-auth";
-import { authOption } from "@/app/api/auth/[...nextauth]/route";
+import { authOption } from "@/app/utils/authOptions";
 
 //  Get User Credits
 export async function GET() {

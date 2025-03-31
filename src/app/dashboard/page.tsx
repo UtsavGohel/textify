@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
-import { authOption } from "@/app/api/auth/[...nextauth]/route";
 import ImageGenerator from "../components/ImageGenerator";
 import { redirect } from "next/navigation";
+import { authOption } from "../utils/authOptions";
 
 export default async function Dashboard() {
   const session = await getServerSession(authOption);
