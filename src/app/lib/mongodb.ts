@@ -8,20 +8,29 @@ if (!MONGODB_URI) {
   );
 }
 
-const cached = global.mongoose || { conn: null, promise: null };
+// Use a static variable for caching the connection
+let cachedConn: mongoose.Connection | null = null;
+let cachedPromise: Promise<mongoose.Mongoose> | null = null;
 
 export async function connectToDB() {
-  if (cached.conn) return cached.conn;
+  // If a connection already exists, return it
+  if (cachedConn) {
+    return cachedConn;
+  }
 
-  if (!cached.promise) {
-    cached.promise = mongoose
+  // If no promise exists, initiate the connection
+  if (!cachedPromise) {
+    cachedPromise = mongoose
       .connect(MONGODB_URI, {
         dbName: "textify",
         bufferCommands: false,
       })
-      .then((mongoose) => mongoose);
+      .then((mongooseInstance) => mongooseInstance);
   }
 
-  cached.conn = await cached.promise;
-  return cached.conn;
+  // Wait for the promise to resolve and cache the connection
+  const mongooseInstance = await cachedPromise;
+  cachedConn = mongooseInstance.connection;
+
+  return cachedConn;
 }
