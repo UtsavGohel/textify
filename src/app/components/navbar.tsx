@@ -7,7 +7,7 @@ const Navbar = () => {
   const { data: session } = useSession();
 
   return (
-    <nav className="bg-gray-800 p-4 flex justify-between items-center bg-gradient-to-br from-gray-900 to-gray-800 shadow-lg">
+    <nav className="bg-gray-800 p-4 flex justify-between items-center bg-gradient-to-br from-gray-900 to-gray-800 shadow-lg sticky top-0 z-50">
       {/* Logo Section */}
       <Link href="/" className="flex items-center space-x-2">
         <span className="text-2xl font-bold text-white cursor-pointer">
