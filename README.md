@@ -35,7 +35,7 @@ Make sure you have **Node.js** installed. If not, you can install it from [nodej
 ### Clone the repository
 
 ```bash
-git clone https://github.com/your-username/textify-app.git
+git clone https://github.com/UtsavGohel/textify-app.git
 cd textify-app
 ```
 Install dependencies
