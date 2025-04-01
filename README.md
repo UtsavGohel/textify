@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Textify App
 
-## Getting Started
+Textify is a **Next.js** web application that provides text transformation functionality. The app allows users to input text, apply transformations, and get results in real time. It is designed to be a fast, responsive, and user-friendly tool.
 
-First, run the development server:
+This project is hosted on **Vercel** and uses **Next.js** for the frontend. The app is optimized for both desktop and mobile devices.
+
+## Features
+
+- **Text Transformation**: Allows users to input text and apply various transformations.
+- **Mobile-Friendly**: Fully responsive and optimized for mobile devices.
+- **Live Preview**: See the results in real time as you type.
+- **Deployable on Vercel**: Hosted on Vercel for quick and easy deployment.
+
+## Demo
+
+You can try out the live version of the app here: https://textify-art.vercel.app
+
+## Technologies Used
+
+- **Next.js**: Framework for server-side rendering and static site generation.
+- **React**: JavaScript library for building the user interface.
+- **Stripe**: Payment gateway for implementing a credit-based subscription system.
+- **AI Tools**: LLM models (e.g., `GPT-4o`) for text generation and processing.
+- **Vercel**: Platform for deployment and hosting.
+- **CSS (Tailwind or Styled Components)**: For styling the app.
+
+## Installation
+
+To run this project locally, follow these steps:
+
+### Prerequisites
+
+Make sure you have **Node.js** installed. If not, you can install it from [nodejs.org](https://nodejs.org/).
+
+### Clone the repository
+
+```bash
+git clone https://github.com/your-username/textify-app.git
+cd textify-app
+```
+Install dependencies
+
+```bash
+npm install
+```
+
+Copy `.env.example` into `.env` file
+
+Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open your browser and navigate to http://localhost:3000 to see the app in action.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Feel free to fork this project and submit pull requests. If you find any bugs or have suggestions for improvements, open an issue in the GitHub repository.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contact
 
-## Deploy on Vercel
+For any questions or feedback, feel free to reach out:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Email: utsavgohel2002@gmail.com
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub: https://github.com/UtsavGohel
