@@ -63,7 +63,7 @@ Feel free to fork this project and submit pull requests. If you find any bugs or
 
 ## Contact
 
-For any questions or feedback, feel free to reach out:
+For the any questions or feedback, feel free to reach out:
 
 Email: utsavgohel2002@gmail.com
 
