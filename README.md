@@ -13,8 +13,7 @@ This project is hosted on **Vercel** and uses **Next.js** for the frontend. The 
 
 ## Demo
 
-You can try out the live version of the app here: https://textify-art.vercel.app
-
+You can try out the live version of the app here: https://textify.utsavgohel.com/
 ## Technologies Used
 
 - **Next.js**: Framework for server-side rendering and static site generation.
